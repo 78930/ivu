@@ -1,0 +1,229 @@
+/* Page wrapper */
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+/* HERO WITH 4D VIDEO BACKGROUND */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 82vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* full-screen video */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.03) brightness(0.95);
+  z-index: 1;
+}
+
+/* gradient + dark overlay for 4D feel */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(0, 224, 255, 0.12), transparent),
+    radial-gradient(circle at 82% 78%, rgba(123, 97, 255, 0.08), transparent),
+    linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.62));
+  mix-blend-mode: screen;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+}
+
+/* text content on top */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: left;
+  padding: 0 2rem;
+  animation: floatUp 1.4s ease-out;
+  max-width: 720px;
+  margin-left: 6rem;
+}
+
+.hero-pretitle {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.hero-title {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  line-height: 1.02;
+  font-weight: 900;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.hero-sub {
+  margin-top: 0.6rem;
+  font-size: 1.05rem;
+  max-width: 680px;
+  opacity: 0.92;
+  color: var(--muted);
+}
+
+.hero-ctas {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cta-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: none;
+}
+
+/* buttons reused in sections */
+.cta-button,
+.cta-button-white {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* primary gradient button */
+.cta-button {
+  border: none;
+  cursor: pointer;
+  color: #050816;
+  background: linear-gradient(135deg, #00e0ff, #ff00ff);
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.6);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 35px rgba(255, 0, 255, 0.7);
+}
+
+/* outline / white variant */
+.cta-button-white {
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+
+.cta-button-white:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* subtle entry animation */
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 1.25rem;
+    max-width: 100%;
+  }
+  .hero-ctas { justify-content: center; }
+}
+
+/* SECTIONS BELOW HERO */
+
+.services-overview,
+.why-us,
+.final-cta {
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-overview h2,
+.why-us h2,
+.final-cta h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Services grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.service-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Why Us grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.benefit {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+/* Final CTA */
+.final-cta {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Fallback when video is unavailable */
+.hero.fallback {
+  background: linear-gradient(120deg,#071124 0%,#001e3c 50%,#06263f 100%);
+  color: #fff;
+}
+
+.hero.fallback .hero-overlay {
+  background: rgba(3, 7, 18, 0.55);
+}
+
+.hero.fallback {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

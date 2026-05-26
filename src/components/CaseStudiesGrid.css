@@ -1,0 +1,21 @@
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.case-card { border-radius: 12px; overflow: hidden; }
+
+.case-link { display:block; color: inherit; text-decoration:none; }
+
+.case-media { width: 100%; height: 160px; overflow: hidden; display: block; }
+
+.case-media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.85) contrast(1.02); }
+
+.case-body { padding: 1rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 30px rgba(2,6,23,0.35); }
+
+.case-body h3 { margin: 0 0 0.5rem 0; color: var(--text); }
+.case-body p { margin: 0 0 0.75rem 0; color: var(--muted); }
+.case-cta { color: var(--accent); font-weight: 700; }
+
+.case-card:hover .case-body{ transform: translateY(-6px); transition: transform .28s ease; }
