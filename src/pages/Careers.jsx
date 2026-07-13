@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import './Careers.css';
 
 function Careers() {
+  const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -131,7 +133,17 @@ function Careers() {
                     </ul>
                   </div>
 
-                  <button className="apply-btn">Apply Now</button>
+                  <button
+                    className="apply-btn"
+                    onClick={() => navigate('/contact', {
+                      state: {
+                        subject: `Application: ${job.title}`,
+                        message: `I would like to apply for the ${job.title} position (${job.department}).`,
+                      },
+                    })}
+                  >
+                    Apply Now
+                  </button>
                 </div>
               ))}
             </div>
@@ -141,7 +153,14 @@ function Careers() {
         <section className="cta-section">
           <h2>Don't see a position that fits?</h2>
           <p>Send us your resume and let's talk about opportunities!</p>
-          <button className="contact-btn">Send Your Resume</button>
+          <button
+            className="contact-btn"
+            onClick={() => navigate('/contact', {
+              state: { subject: 'Resume Submission', message: "I'd like to share my resume for future opportunities." },
+            })}
+          >
+            Send Your Resume
+          </button>
         </section>
       </div>
     </div>

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../api';
+import { mockBlogs } from '../data/mockContent';
 import './Blog.css';
 
 function Blog() {
@@ -30,39 +32,6 @@ function Blog() {
     setError(null);
     fetchBlogs();
   };
-
-  const mockBlogs = [
-    {
-      _id: '1',
-      title: 'Cloud Migration: A Step-by-Step Guide',
-      slug: 'cloud-migration-guide',
-      excerpt: 'Learn how to successfully migrate your infrastructure to the cloud',
-      category: 'IT Services',
-      author: 'John Doe',
-      createdAt: new Date('2025-12-10'),
-      image: '☁️'
-    },
-    {
-      _id: '2',
-      title: 'RCM Optimization Best Practices',
-      slug: 'rcm-best-practices',
-      excerpt: 'Improve your revenue cycle management with these proven strategies',
-      category: 'Healthcare',
-      author: 'Jane Smith',
-      createdAt: new Date('2025-12-08'),
-      image: '🏥'
-    },
-    {
-      _id: '3',
-      title: 'IoT in Manufacturing: Benefits and Implementation',
-      slug: 'iot-manufacturing',
-      excerpt: 'Discover how IoT is revolutionizing manufacturing processes',
-      category: 'Semiconductors',
-      author: 'Mike Johnson',
-      createdAt: new Date('2025-12-05'),
-      image: '🔌'
-    }
-  ];
 
   const displayBlogs = blogs.length > 0 ? blogs : mockBlogs;
 
@@ -96,9 +65,9 @@ function Blog() {
                       {new Date(post.createdAt).toLocaleDateString()}
                     </span>
                   </div>
-                  <a href={`#`} className="read-more">
+                  <Link to={`/blog/${post.slug}`} className="read-more">
                     Read More →
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

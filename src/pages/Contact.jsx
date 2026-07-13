@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './Contact.css';
 
 function Contact() {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     company: '',
     service: '',
-    subject: '',
-    message: ''
+    subject: location.state?.subject || '',
+    message: location.state?.message || ''
   });
 
   const [submitted, setSubmitted] = useState(false);

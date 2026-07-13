@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './CaseStudiesGrid.css';
 
 const defaultCases = [
@@ -13,7 +14,7 @@ export default function CaseStudiesGrid({ cases = defaultCases }) {
     <div className="cases-grid" role="list" aria-label="Case studies">
       {cases.map((c) => (
         <article key={c.title} className="case-card" role="listitem">
-          <a href={c.href || '#'} className="case-link">
+          <Link to={c.href || '#'} className="case-link">
             <div className="case-media">
               {c.img ? (
                 <img src={c.img} alt={c.title} loading="lazy" decoding="async" />
@@ -26,7 +27,7 @@ export default function CaseStudiesGrid({ cases = defaultCases }) {
               <p>{c.snippet}</p>
               <span className="case-cta">Read more →</span>
             </div>
-          </a>
+          </Link>
         </article>
       ))}
     </div>

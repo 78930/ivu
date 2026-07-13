@@ -163,12 +163,6 @@
   line-height: 1.6;
 }
 
-.requirements li::before {
-  content: '✓ ';
-  color: #667eea;
-  font-weight: bold;
-}
-
 .apply-btn {
   padding: 12px 30px;
   background-color: #667eea;

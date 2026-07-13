@@ -71,12 +71,6 @@
   line-height: 1.6;
 }
 
-.features-list li::before {
-  content: '✓ ';
-  color: #667eea;
-  font-weight: bold;
-}
-
 .service-cta {
   width: 100%;
   padding: 12px;

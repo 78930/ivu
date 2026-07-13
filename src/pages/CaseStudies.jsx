@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../api';
+import { mockCases } from '../data/mockContent';
 import './CaseStudies.css';
 import CaseStudiesGrid from '../components/CaseStudiesGrid';
 
@@ -31,51 +32,6 @@ function CaseStudies() {
     setError(null);
     fetchCaseStudies();
   };
-
-  const mockCases = [
-    {
-      _id: '1',
-      title: 'Enterprise Cloud Migration',
-      service: 'IT Services',
-      client: 'Tech Corp',
-      challenge: 'Legacy systems hindering growth',
-      solution: 'Complete cloud migration to AWS',
-      results: 'Improved system performance',
-      metrics: {
-        improvement: '40% cost reduction',
-        roi: '250%',
-        timeframe: '6 months'
-      }
-    },
-    {
-      _id: '2',
-      title: 'Healthcare RCM Optimization',
-      service: 'Healthcare RCM',
-      client: 'Hospital Chain',
-      challenge: 'High claim denial rates',
-      solution: 'Implemented AI-based RCM system',
-      results: 'Reduced denials and improved collections',
-      metrics: {
-        improvement: '35% denial reduction',
-        roi: '180%',
-        timeframe: '4 months'
-      }
-    },
-    {
-      _id: '3',
-      title: 'IoT Device Development',
-      service: 'Semiconductors',
-      client: 'Manufacturing Firm',
-      challenge: 'Need for real-time monitoring',
-      solution: 'Custom IoT solution with embedded systems',
-      results: 'Real-time production monitoring',
-      metrics: {
-        improvement: '50% efficiency gain',
-        roi: '320%',
-        timeframe: '5 months'
-      }
-    }
-  ];
 
   const displayCases = cases.length > 0 ? cases : mockCases;
   const filteredCases = filter === 'All'

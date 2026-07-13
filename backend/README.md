@@ -1,4 +1,4 @@
-# Vikramivu Backend Setup Guide
+# Tavimora Solutions Backend Setup Guide
 
 ## Overview
 This backend handles contact form submissions with email notifications using Nodemailer.

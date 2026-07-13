@@ -193,12 +193,24 @@ app.get('/api/blogs', (req, res) => {
   res.json(blogs);
 });
 
+app.get('/api/blogs/:slug', (req, res) => {
+  const post = blogs.find((b) => b.slug === req.params.slug);
+  if (!post) return res.status(404).json({ error: 'Blog post not found' });
+  res.json(post);
+});
+
 app.get('/api/jobs', (req, res) => {
   res.json(jobs);
 });
 
 app.get('/api/cases', (req, res) => {
   res.json(cases);
+});
+
+app.get('/api/cases/:id', (req, res) => {
+  const item = cases.find((c) => c._id === req.params.id);
+  if (!item) return res.status(404).json({ error: 'Case study not found' });
+  res.json(item);
 });
 
 // Contact form submission endpoint
@@ -255,8 +267,8 @@ app.post('/api/contact', async (req, res) => {
 
     // Send email to admin
     const adminMailResponse = await transporter.sendMail({
-      from: `"Vikramivu" <${process.env.SMTP_USER}>`,
-      to: process.env.RECIPIENT_EMAIL || 'contact@vikramivu.com',
+      from: `"Tavimora Solutions" <${process.env.SMTP_USER}>`,
+      to: process.env.RECIPIENT_EMAIL || 'contact@tavimora.com',
       subject: `New Contact: ${subject || name}`,
       html: emailContent,
       replyTo: email
@@ -264,14 +276,14 @@ app.post('/api/contact', async (req, res) => {
 
     // Send confirmation email to user
     await transporter.sendMail({
-      from: `"Vikramivu" <${process.env.SMTP_USER}>`,
+      from: `"Tavimora Solutions" <${process.env.SMTP_USER}>`,
       to: email,
-      subject: 'We received your message - Vikramivu',
+      subject: 'We received your message - Tavimora Solutions',
       html: `
         <h2>Thank you for contacting us!</h2>
         <p>Hi ${name},</p>
         <p>We have received your message and will get back to you within 24 hours.</p>
-        <p>Best regards,<br>Vikramivu Team</p>
+        <p>Best regards,<br>Tavimora Solutions Team</p>
       `
     });
 

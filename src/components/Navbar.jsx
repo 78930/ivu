@@ -10,7 +10,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src={logoSrc} alt="IVU Logo" style={{height: '40px'}} />
+          <img src={logoSrc} alt="Tavimora Solutions Logo" style={{height: '40px'}} />
         </Link>
         <div className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           ☰

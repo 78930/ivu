@@ -5,12 +5,14 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
 import CaseStudies from './pages/CaseStudies';
+import CaseStudyDetail from './pages/CaseStudyDetail';
 import ITConsulting from './pages/ITConsulting';
 import ITServices from './pages/ITServices';
 import RCMServices from './pages/RCMServices';
 import RCMDetails from './pages/RCMDetails';
 import Semi from './pages/Semiconductors';
 import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
 import Contact from './pages/Contact';
 import Careers from './pages/Careers';
 import './App.css';
@@ -29,7 +31,9 @@ function App() {
         <Route path="/semiconductors" element={<Semi />} />
         <Route path="/about" element={<About />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
       </Routes>

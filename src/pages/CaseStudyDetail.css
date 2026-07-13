@@ -1,0 +1,61 @@
+.case-detail-hero {
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+  background: linear-gradient(120deg, #071124 0%, #001e3c 100%);
+  color: var(--text);
+}
+
+.case-detail-hero h1 {
+  margin: 0.75rem 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.case-detail-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.case-detail-container section {
+  margin-bottom: 1.75rem;
+}
+
+.case-detail-container h3 {
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.case-detail-container p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.case-detail-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.metric {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}

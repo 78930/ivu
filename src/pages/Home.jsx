@@ -52,7 +52,7 @@ function Home() {
         <div className="hero-content">
           <div className="hero-pretitle">From Problems to Solutions</div>
           <h1 className="hero-title">Progressive Engineering Excellence</h1>
-          <p className="hero-sub">Vikram IVU is a trusted partner for product and silicon engineering — hardware, embedded software, cloud and AI solutions that accelerate product readiness.</p>
+          <p className="hero-sub">Tavimora Solutions is a trusted partner for product and silicon engineering — hardware, embedded software, cloud and AI solutions that accelerate product readiness.</p>
 
           <div className="hero-ctas">
             <Link to="/contact" className="nav-btn">Talk to an Expert</Link>
