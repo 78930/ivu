@@ -79,8 +79,6 @@ export default function AnimatedBackground({ color = 0x00e0ff, bg = 0x071124 }) 
 
     group.rotation.x = -0.25;
 
-    let last = performance.now();
-
     function onResize() {
       const w = el.clientWidth || window.innerWidth;
       const h = el.clientHeight || window.innerHeight;

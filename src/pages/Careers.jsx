@@ -7,10 +7,6 @@ function Careers() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchJobs();
-  }, []);
-
   const fetchJobs = async () => {
     try {
       setError(null);
@@ -23,6 +19,10 @@ function Careers() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
   const retry = () => {
     setLoading(true);

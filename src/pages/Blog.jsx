@@ -8,10 +8,6 @@ function Blog() {
   const [error, setError] = useState(null);
   const [newsletterMsg, setNewsletterMsg] = useState(null);
 
-  useEffect(() => {
-    fetchBlogs();
-  }, []);
-
   const fetchBlogs = async () => {
     try {
       setError(null);
@@ -24,6 +20,10 @@ function Blog() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
 
   const retry = () => {
     setLoading(true);

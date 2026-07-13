@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logoSrc from '../assets/logo.svg';
 import './Navbar.css';
 
 function Navbar() {
@@ -9,7 +10,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <img src="/src/assets/logo.svg" alt="IVU Logo" style={{height: '40px'}} />
+          <img src={logoSrc} alt="IVU Logo" style={{height: '40px'}} />
         </Link>
         <div className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           ☰

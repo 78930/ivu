@@ -1,13 +1,13 @@
 // src/pages/Home.jsx
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 // video is expected at runtime as a static public asset: `frontend/public/bg.mp4`
 // Use a remote electronics-themed fallback video if the local `/bg.mp4` is missing.
 // Provided fallback (iStock Big Data video):
 // https://media.istockphoto.com/id/1309227447/video/big-data-information-flowing-through-a-computer-network.mp4
 const CDN_BG = 'https://media.istockphoto.com/id/1309227447/video/big-data-information-flowing-through-a-computer-network.mp4?s=mp4-640x640-is&k=20&c=VidCqZ3Kf2FxTXblJTJM-4hEecoM-YSYcbxlbeEHtuQ=';
 import poster from '../assets/bg-poster.svg';
-import AnimatedBackground from '../components/AnimatedBackground';
+const AnimatedBackground = lazy(() => import('../components/AnimatedBackground'));
 import './Home.css';
 import ServicesGrid from '../components/ServicesGrid';
 
@@ -24,7 +24,9 @@ function Home() {
         style={videoFailed ? { backgroundImage: `url(${poster})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
       >
         {/* Animated background sits below video (or alone if video fails) */}
-        <AnimatedBackground color={0x00e0ff} bg={0x071124} />
+        <Suspense fallback={null}>
+          <AnimatedBackground color={0x00e0ff} bg={0x071124} />
+        </Suspense>
 
         {!videoFailed && (
           <video

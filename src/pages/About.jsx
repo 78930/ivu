@@ -29,7 +29,7 @@ function About() {
         <section className="about-section">
           <h2>Our Story</h2>
           <p>
-            Founded with a vision to bridge the technology gap, YourCompany has 
+            Founded with a vision to bridge the technology gap, Vikram IVU has
             grown from a small startup to a trusted partner for 100+ organizations 
             across multiple industries. Our team of 50+ professionals brings 
             expertise in IT services, healthcare RCM, semiconductors, and business consulting.

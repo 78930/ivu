@@ -9,10 +9,6 @@ function CaseStudies() {
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState('All');
 
-  useEffect(() => {
-    fetchCaseStudies();
-  }, []);
-
   const fetchCaseStudies = async () => {
     try {
       setError(null);
@@ -25,6 +21,10 @@ function CaseStudies() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchCaseStudies();
+  }, []);
 
   const retry = () => {
     setLoading(true);
@@ -125,8 +125,13 @@ function CaseStudies() {
             <button onClick={retry}>Retry</button>
           </div>
         ) : (
-          // render grid (uses internal mock cards)
-          <CaseStudiesGrid />
+          <CaseStudiesGrid
+            cases={filteredCases.map((c) => ({
+              title: c.title,
+              snippet: c.solution || c.challenge,
+              href: `/case-studies/${c._id}`,
+            }))}
+          />
         )}
       </div>
     </div>

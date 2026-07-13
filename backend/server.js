@@ -139,6 +139,51 @@ const jobs = [
   }
 ];
 
+const cases = [
+  {
+    _id: '1',
+    title: 'Enterprise Cloud Migration',
+    service: 'IT Services',
+    client: 'Tech Corp',
+    challenge: 'Legacy systems hindering growth',
+    solution: 'Complete cloud migration to AWS',
+    results: 'Improved system performance',
+    metrics: {
+      improvement: '40% cost reduction',
+      roi: '250%',
+      timeframe: '6 months'
+    }
+  },
+  {
+    _id: '2',
+    title: 'Healthcare RCM Optimization',
+    service: 'Healthcare RCM',
+    client: 'Hospital Chain',
+    challenge: 'High claim denial rates',
+    solution: 'Implemented AI-based RCM system',
+    results: 'Reduced denials and improved collections',
+    metrics: {
+      improvement: '35% denial reduction',
+      roi: '180%',
+      timeframe: '4 months'
+    }
+  },
+  {
+    _id: '3',
+    title: 'IoT Device Development',
+    service: 'Semiconductors',
+    client: 'Manufacturing Firm',
+    challenge: 'Need for real-time monitoring',
+    solution: 'Custom IoT solution with embedded systems',
+    results: 'Real-time production monitoring',
+    metrics: {
+      improvement: '50% efficiency gain',
+      roi: '320%',
+      timeframe: '5 months'
+    }
+  }
+];
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'Server is running' });
@@ -150,6 +195,10 @@ app.get('/api/blogs', (req, res) => {
 
 app.get('/api/jobs', (req, res) => {
   res.json(jobs);
+});
+
+app.get('/api/cases', (req, res) => {
+  res.json(cases);
 });
 
 // Contact form submission endpoint
